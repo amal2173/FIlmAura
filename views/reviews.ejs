@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <%- include("partials/header.ejs") %>
+
+    <% if (posts.length === 0) { %>
+
+        <div id="no-review">
+            <p>There are no reviews so far!</p>
+        </div>
+
+        <style>
+            .review-container {
+                display: none;
+            }
+        </style>
+
+    <% } else { %>
+
+        <div class="container-3">
+
+            <% posts.forEach(newBlog => { %>
+
+                <div class="review-container">
+
+                    <% if (newBlog.image) { %>
+                        <img src="/img-uploads/<%= newBlog.image %>" id="card-img" alt="Review Image"  >
+                    <% } %>
+                    <div class="card-text">
+                        
+                        <h4 id="card-title"><%= newBlog.title %></h4>
+                        <p id="card-author"><%= new Date().toLocaleDateString(); %>, <%= newBlog.author %></p>
+                        <p id="card-p"><%= newBlog.review %></p>
+
+                    </div>
+
+                </div>
+
+            <% }); %>
+        </div>
+    <% } %>
+
+<%- include("partials/footer.ejs") %>
+
+</body>
+</html>
+
+

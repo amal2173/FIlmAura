@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<%- include("partials/header.ejs") %>
+
+<div class="reviewPg">
+
+    <p>A film is not complete without the echo of its audience. Your review is that echo,</br>
+    a reflection of what truly resonates.<span id="span-1"> Pen your heartfelt review.</span> <p>
+   
+</div>
+
+<div class="create-container-1">
+ 
+    <form action="/createreview" method="post" class="blogForm"  enctype="multipart/form-data">
+        
+        <div class="file-upload">
+
+            <p id="file-text">Upload an image to complement your review: </p> 
+            <input type="file" name="image">
+
+        </div>
+
+        <input type="text" name="author" placeholder="your name" class="in">
+        <input type="text" name="title" placeholder="movie" class="in">
+        <textarea name="review" placeholder="pen your review here..." required id="blogReview"></textarea>
+        <input type="submit" name="create" value="Create">
+
+    </form>
+
+</div>
+
+<%- include("partials/footer.ejs") %>
+
+</body>
+</html>
+
